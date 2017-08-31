@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="model">
+<class name="Product" table="PRODUCT">						
+	<id name="idProduct"  column="ID_PRODUCT">
+		<generator class="increment"/>
+	</id>
+	
+	<property name="code"  column="CODE"/>
+	<property name="priceOfSale"  column="PRICEOFSALE"/>
+	<property name="stock"  column="STOCK"/>
+	<property name="priceOfBuy"  column="PRICEOFBUY"/>
+	<property name="minStock"  column="MINSTOCK"/>
+	<property name="description"  column="DESCRIPTION"/>
+	<property name="gain"  column="GAIN"/>	
+		
+</class>
+</hibernate-mapping>
