@@ -22,78 +22,48 @@
 	</bean>
 
 	<bean id="contextApplicationContextProvider"
-		class="bd2.Muber.util.Bd2ContextProvider">
+		class="util.Bd2ContextProvider">
 	</bean>
 	
 	<!-- Repositories and Repository Locator -->
 
-	<bean id="passengerRepository"
-		class="bd2.Muber.repositories.impl.PassengerRepositoryHibernateImpl">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	
-	<bean id="driverRepository"
-		class="bd2.Muber.repositories.impl.DriverRepositoryHibernateImpl">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	
-	<bean id="travelRepository"
-		class="bd2.Muber.repositories.impl.TravelRepositoryHibernateImpl">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	
-	<bean id="reviewRepository"
-		class="bd2.Muber.repositories.impl.ReviewRepositoryHibernateImpl">
+	<bean id="productRepository"
+		class="repositories.impl.ProductRepositoryHibernateImpl">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
 
-	<bean id="dtoFactory" class="bd2.Muber.dto.DTOFactory">
+	<bean id="dtoFactory" class="dto.DTOFactory">
 	</bean>
 
-	<bean id="repositoryLocator" class="bd2.Muber.repositories.RepositoryLocator"
+	<bean id="repositoryLocator" class="repositories.RepositoryLocator"
 		factory-method="getInstance">
-		<property name="passengerRepository">
-			<ref bean="passengerRepository" />
-		</property>
-		<property name="driverRepository">
-			<ref bean="driverRepository" />
-		</property>
-		<property name="travelRepository">
-			<ref bean="travelRepository" />
-		</property>
-		<property name="reviewRepository">
-			<ref bean="reviewRepository" />
+		<property name="productRepository">
+			<ref bean="productRepository" />
 		</property>
 	</bean>
 
-	<bean id="baseService" class="bd2.Muber.services.impl.BaseServiceImpl">
+	<bean id="baseService" class="services.impl.BaseServiceImpl">
 		<property name="dtoFactory">
 			<ref bean="dtoFactory" />
 		</property>
 	</bean>
 
-	<bean id="passengerServiceTarget" class="bd2.Muber.services.impl.PassengerServiceImpl"
+	<bean id="passengerServiceTarget" class="services.impl.ProductServiceImpl"
 		parent="baseService">
-		<property name="passengerRepository">
-			<ref bean="passengerRepository" />
+		<property name="productRepository">
+			<ref bean="productRepository" />
 		</property>
 	</bean>
 
-	<bean id="passengerService"
+	<bean id="productService"
 		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 		<property name="transactionManager">
 			<ref bean="transactionManager" />
 		</property>
 		<property name="target">
-			<ref bean="passengerServiceTarget" />
+			<ref bean="productServiceTarget" />
 		</property>
 		<property name="transactionAttributes">
 			<props>
@@ -102,73 +72,7 @@
 		</property>
 	</bean>
 	
-	<bean id="driverServiceTarget" class="bd2.Muber.services.impl.DriverServiceImpl"
-		parent="baseService">
-		<property name="driverRepository">
-			<ref bean="driverRepository" />
-		</property>
-	</bean>
-	
-	<bean id="driverService"
-		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
-		<property name="transactionManager">
-			<ref bean="transactionManager" />
-		</property>
-		<property name="target">
-			<ref bean="driverServiceTarget" />
-		</property>
-		<property name="transactionAttributes">
-			<props>
-				<prop key="*">PROPAGATION_REQUIRED</prop>
-			</props>
-		</property>
-	</bean>
-	
-	<bean id="travelServiceTarget" class="bd2.Muber.services.impl.TravelServiceImpl"
-		parent="baseService">
-		<property name="travelRepository">
-			<ref bean="travelRepository" />
-		</property>
-	</bean>
-	
-	<bean id="travelService"
-		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
-		<property name="transactionManager">
-			<ref bean="transactionManager" />
-		</property>
-		<property name="target">
-			<ref bean="travelServiceTarget" />
-		</property>
-		<property name="transactionAttributes">
-			<props>
-				<prop key="*">PROPAGATION_REQUIRED</prop>
-			</props>
-		</property>
-	</bean>
-	
-	<bean id="reviewServiceTarget" class="bd2.Muber.services.impl.ReviewServiceImpl"
-		parent="baseService">
-		<property name="reviewRepository">
-			<ref bean="reviewRepository" />
-		</property>
-	</bean>
-	
-	<bean id="reviewService"
-		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
-		<property name="transactionManager">
-			<ref bean="transactionManager" />
-		</property>
-		<property name="target">
-			<ref bean="reviewServiceTarget" />
-		</property>
-		<property name="transactionAttributes">
-			<props>
-				<prop key="*">PROPAGATION_REQUIRED</prop>
-			</props>
-		</property>
-	</bean>
-	
-	<bean id="serviceLocator" class="bd2.Muber.services.ServiceLocator"
+	<bean id="serviceLocator" class="services.ServiceLocator"
 		factory-method="getInstance">
 		<property name="productService">
 			<ref bean="productService" />
