@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 import org.springframework.context.ApplicationContext;
 
-public class Bd2ApplicationContext implements Serializable {
+public class AlmaceneroApplicationContext implements Serializable {
 
 	private static final long serialVersionUID = -8314525704793980700L;
 

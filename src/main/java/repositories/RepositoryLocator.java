@@ -5,19 +5,21 @@ import repositories.impl.ProductRepositoryHibernateImpl;
 public class RepositoryLocator {
 private static final RepositoryLocator instance = new RepositoryLocator();
 	
-	private ProductRepositoryHibernateImpl passengerRepository;
+	private ProductRepositoryHibernateImpl productRepository;
 		
 	public static RepositoryLocator getInstance() {
         return instance;
     }
 
-	public ProductRepositoryHibernateImpl getPassengerRepository() {
-		return passengerRepository;
+	public ProductRepositoryHibernateImpl getProductRepository() {
+		return productRepository;
 	}
 
-	public void setPassengerRepository(ProductRepositoryHibernateImpl passengerRepository) {
-		this.passengerRepository = passengerRepository;
+	public void setProductRepository(ProductRepositoryHibernateImpl productRepository) {
+		this.productRepository = productRepository;
 	}
+
+
 	
 
 }
