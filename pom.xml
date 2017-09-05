@@ -1,12 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>web</groupId>
+  <groupId>almacenero</groupId>
   <artifactId>almacenero</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>almacenero Maven Webapp</name>
-  <url>http://maven.apache.org</url>
   <properties>
 	  <!-- Use the latest version whenever possible. -->
 	  <jackson.version>2.4.4</jackson.version>

@@ -9,14 +9,15 @@ public class ProductServiceImpl extends BaseServiceImpl<Product, Integer> implem
 
 	private ProductRepositoryHibernateImpl productRepository;
 	
-	public ProductRepositoryHibernateImpl getReviewRepository(){
+
+	public ProductRepositoryHibernateImpl getProductRepository() {
 		return productRepository;
 	}
-	
-	public void setReviewRepository(ProductRepositoryHibernateImpl reviewRepository){
-		this.productRepository = reviewRepository;
+
+	public void setProductRepository(ProductRepositoryHibernateImpl productRepository) {
+		this.productRepository = productRepository;
 	}
-	
+
 	@Override
 	public List<Product> getProduct(Product product) throws Exception {
 		// TODO Auto-generated method stub

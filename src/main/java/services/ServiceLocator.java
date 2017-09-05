@@ -4,18 +4,19 @@ public class ServiceLocator {
 
 	private static final ServiceLocator instance = new ServiceLocator();
 
-	private ProductService producService;
+	private ProductService productService;
 	
 	public static ServiceLocator getInstance() {
         return instance;
     }
 
-	public ProductService getProducService() {
-		return producService;
+
+	public ProductService getProductService() {
+		return productService;
 	}
 
-	public void setProducService(ProductService producService) {
-		this.producService = producService;
+	public void setProductService(ProductService productService) {
+		this.productService = productService;
 	}
 	
 }
